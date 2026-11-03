@@ -38,3 +38,4 @@ Frontend Task Management SPA adalah aplikasi berbasis peramban (*web client*) ya
 - **Form Handling:** React Hook Form + Zod
 - **HTTP Transport:** Axios (interceptor token & idempotency key)
 - **Styling & Icons:** Tailwind CSS v4 + Lucide React
+

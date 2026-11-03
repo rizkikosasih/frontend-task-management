@@ -23,3 +23,4 @@ Pemetaan batasan modul, navigasi rute, dan proteksi otorisasi pada frontend SPA.
 - `features/projects/`: Komponen kartu proyek, modal formulir pembuatan/pengeditan proyek, dan paginasi.
 - `features/tasks/`: Komponen kolom kanban (`todo`, `in_progress`, `done`), kartu tugas dengan dnd-kit sensor, modal detail, dan pemilih status.
 - `features/comments/`: Komponen daftar diskusi komentar dan formulir pengiriman komentar.
+

@@ -39,3 +39,4 @@ Standarisasi token desain visual, palet warna, tipografi, dan spasi antarmuka kl
 - **Bayangan (Shadow):**
   - Kartu Konten: `shadow-sm`
   - Modal & Menu Dropdown: `shadow-lg border border-slate-200`
+
