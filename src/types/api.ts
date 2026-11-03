@@ -1,8 +1,8 @@
 export interface ApiResponse<T = unknown> {
-  status: 'success' | 'error'
+  success: boolean
   message: string
   data: T
-  meta?: ApiMeta
+  meta?: ApiMeta | null
 }
 
 export interface ApiMeta {
@@ -10,10 +10,11 @@ export interface ApiMeta {
   last_page?: number
   per_page?: number
   total?: number
+  has_next_page?: boolean
 }
 
 export interface ApiErrorResponse {
-  status: 'error'
+  success: boolean
   message: string
-  errors?: Record<string, string[]>
+  errors?: Record<string, string[]> | null
 }

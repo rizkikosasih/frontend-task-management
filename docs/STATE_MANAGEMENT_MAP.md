@@ -53,3 +53,4 @@ Pemetaan arsitektur state klien, server cache, dan aliran mutasi data pada front
 - `token`: Bearer token string (tersimpan secara lokal pada `localStorage`).
 - `setAuth(user, token)`: Menyimpan kredensial dan memperbarui token.
 - `clearAuth()`: Menghapus token dari memori dan `localStorage` saat logout.
+
