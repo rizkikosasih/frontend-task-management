@@ -7,7 +7,10 @@ export async function fetchCommentsApi(taskId: number): Promise<ApiResponse<Comm
   return response.data
 }
 
-export async function createCommentApi(taskId: number, payload: CreateCommentPayload): Promise<ApiResponse<Comment>> {
+export async function createCommentApi(
+  taskId: number,
+  payload: CreateCommentPayload
+): Promise<ApiResponse<Comment>> {
   const response = await apiClient.post<ApiResponse<Comment>>(`/tasks/${taskId}/comments`, payload)
   return response.data
 }
@@ -16,4 +19,3 @@ export async function deleteCommentApi(id: number): Promise<ApiResponse<null>> {
   const response = await apiClient.delete<ApiResponse<null>>(`/comments/${id}`)
   return response.data
 }
-

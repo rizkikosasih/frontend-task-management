@@ -15,4 +15,3 @@ export interface Comment {
 export interface CreateCommentPayload {
   message: string
 }
-

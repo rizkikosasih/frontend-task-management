@@ -28,8 +28,9 @@ export async function getMeApi(): Promise<ApiResponse<ProfileData>> {
   return response.data
 }
 
-export async function getOAuthRedirectUrl(provider: 'google' | 'github'): Promise<ApiResponse<{ url: string }>> {
+export async function getOAuthRedirectUrl(
+  provider: 'google' | 'github'
+): Promise<ApiResponse<{ url: string }>> {
   const response = await apiClient.get<ApiResponse<{ url: string }>>(`/oauth/${provider}/redirect`)
   return response.data
 }
-

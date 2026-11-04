@@ -52,7 +52,11 @@ export function RegisterForm() {
       {registerMutation.isError && (
         <Toast
           type="error"
-          message={registerMutation.error instanceof Error ? registerMutation.error.message : 'Registrasi gagal diproses.'}
+          message={
+            registerMutation.error instanceof Error
+              ? registerMutation.error.message
+              : 'Registrasi gagal diproses.'
+          }
         />
       )}
 
@@ -88,11 +92,7 @@ export function RegisterForm() {
           {...register('password_confirmation')}
         />
 
-        <Button
-          type="submit"
-          className="w-full"
-          isLoading={registerMutation.isPending}
-        >
+        <Button type="submit" className="w-full" isLoading={registerMutation.isPending}>
           Daftar Akun
         </Button>
       </form>
@@ -106,4 +106,3 @@ export function RegisterForm() {
     </div>
   )
 }
-

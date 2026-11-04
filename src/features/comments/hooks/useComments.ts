@@ -1,9 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import {
-  createCommentApi,
-  deleteCommentApi,
-  fetchCommentsApi,
-} from '@/api/endpoints/comments'
+import { createCommentApi, deleteCommentApi, fetchCommentsApi } from '@/api/endpoints/comments'
 import type { CreateCommentPayload } from '@/types/comment'
 
 export function useComments(taskId: number) {
@@ -35,4 +31,3 @@ export function useComments(taskId: number) {
     deleteCommentMutation,
   }
 }
-

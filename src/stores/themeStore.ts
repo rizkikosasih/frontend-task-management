@@ -44,7 +44,8 @@ function applyThemeClass(resolved: 'light' | 'dark'): void {
 
 export const useThemeStore = create<ThemeState>((set) => {
   const stored = getSafeStorageItem('app_theme')
-  const initialTheme: ThemeMode = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system'
+  const initialTheme: ThemeMode =
+    stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system'
   const resolved = initialTheme === 'system' ? getSystemTheme() : initialTheme
   applyThemeClass(resolved)
 
@@ -79,7 +80,8 @@ export function initializeThemeWatcher(): () => void {
   const handleStorageChange = (e: StorageEvent) => {
     if (e.key === 'app_theme') {
       const next = e.newValue as ThemeMode | null
-      const validTheme: ThemeMode = next === 'light' || next === 'dark' || next === 'system' ? next : 'system'
+      const validTheme: ThemeMode =
+        next === 'light' || next === 'dark' || next === 'system' ? next : 'system'
       const resolved = validTheme === 'system' ? getSystemTheme() : validTheme
       applyThemeClass(resolved)
       useThemeStore.setState({ theme: validTheme, resolvedTheme: resolved })

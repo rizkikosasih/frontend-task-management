@@ -49,10 +49,7 @@ function OAuthCallbackPage() {
   return (
     <div className="flex flex-col items-center justify-center py-24 space-y-4">
       <Loader2 className="w-8 h-8 text-indigo-600 animate-spin" />
-      <p className="text-sm font-medium text-slate-600">
-        Menyelesaikan otentikasi OAuth...
-      </p>
+      <p className="text-sm font-medium text-slate-600">Menyelesaikan otentikasi OAuth...</p>
     </div>
   )
 }
-

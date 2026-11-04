@@ -27,12 +27,7 @@ function ProjectsPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
 
-  const {
-    projectsQuery,
-    createMutation,
-    updateMutation,
-    deleteMutation,
-  } = useProjects({
+  const { projectsQuery, createMutation, updateMutation, deleteMutation } = useProjects({
     search: search || undefined,
     page,
     per_page: 9,
@@ -114,7 +109,10 @@ function ProjectsPage() {
       {projectsQuery.isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-48 rounded-xl bg-surface-subtle animate-pulse border border-border" />
+            <div
+              key={i}
+              className="h-48 rounded-xl bg-surface-subtle animate-pulse border border-border"
+            />
           ))}
         </div>
       ) : projects.length === 0 ? (
@@ -181,4 +179,3 @@ function ProjectsPage() {
     </div>
   )
 }
-

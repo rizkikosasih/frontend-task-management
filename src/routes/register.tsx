@@ -23,4 +23,3 @@ function RegisterPage() {
     </div>
   )
 }
-

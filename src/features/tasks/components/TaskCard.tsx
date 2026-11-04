@@ -12,14 +12,7 @@ export interface TaskCardProps {
 export function TaskCard({ task, onClick }: TaskCardProps) {
   const isDone = task.status === 'done'
 
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging,
-  } = useSortable({
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: task.id,
     disabled: isDone,
     data: {

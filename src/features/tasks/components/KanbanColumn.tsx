@@ -43,16 +43,14 @@ export function KanbanColumn({
   return (
     <div
       ref={setNodeRef}
-      className={`flex flex-col rounded-xl border p-4 min-h-[500px] transition-colors ${
+      className={`flex flex-col rounded-xl border p-4 min-h-[500px] w-[85vw] sm:w-[70vw] md:w-auto shrink-0 snap-center md:snap-align-none transition-colors ${
         columnColors[id]
       } ${isOver ? 'ring-2 ring-primary ring-offset-2' : ''}`}
     >
       <div className="flex items-center justify-between pb-3 mb-3 border-b border-border-subtle">
         <div className="flex items-center gap-2">
           <h3 className="font-semibold text-foreground text-sm tracking-wide">{title}</h3>
-          <span
-            className={`text-xs px-2 py-0.5 rounded-full font-bold ${badgeColors[id]}`}
-          >
+          <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${badgeColors[id]}`}>
             {tasks.length}
           </span>
         </div>
@@ -84,4 +82,3 @@ export function KanbanColumn({
     </div>
   )
 }
-

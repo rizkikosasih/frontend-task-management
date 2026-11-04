@@ -26,12 +26,18 @@ export async function createTaskApi(payload: CreateTaskPayload): Promise<ApiResp
   return response.data
 }
 
-export async function updateTaskApi(id: number, payload: UpdateTaskPayload): Promise<ApiResponse<Task>> {
+export async function updateTaskApi(
+  id: number,
+  payload: UpdateTaskPayload
+): Promise<ApiResponse<Task>> {
   const response = await apiClient.put<ApiResponse<Task>>(`/tasks/${id}`, payload)
   return response.data
 }
 
-export async function updateTaskStatusApi(id: number, status: TaskStatus): Promise<ApiResponse<Task>> {
+export async function updateTaskStatusApi(
+  id: number,
+  status: TaskStatus
+): Promise<ApiResponse<Task>> {
   const response = await apiClient.patch<ApiResponse<Task>>(`/tasks/${id}/status`, { status })
   return response.data
 }
@@ -40,4 +46,3 @@ export async function deleteTaskApi(id: number): Promise<ApiResponse<null>> {
   const response = await apiClient.delete<ApiResponse<null>>(`/tasks/${id}`)
   return response.data
 }
-
