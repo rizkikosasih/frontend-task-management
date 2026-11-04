@@ -51,3 +51,4 @@ export function useAuthMutations() {
     logoutMutation,
   }
 }
+

@@ -80,3 +80,4 @@ export function ProjectCard({ project, onEdit, onDelete }: ProjectCardProps) {
     </div>
   )
 }
+

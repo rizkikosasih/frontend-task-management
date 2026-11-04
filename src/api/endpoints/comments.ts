@@ -16,3 +16,4 @@ export async function deleteCommentApi(id: number): Promise<ApiResponse<null>> {
   const response = await apiClient.delete<ApiResponse<null>>(`/comments/${id}`)
   return response.data
 }
+
