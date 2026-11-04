@@ -63,4 +63,3 @@ export function CommentList({ comments, onDelete, isDeleting = false }: CommentL
     </div>
   )
 }
-

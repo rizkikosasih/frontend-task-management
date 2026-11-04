@@ -42,9 +42,7 @@ export function CommentForm({ onSubmit, isLoading = false }: CommentFormProps) {
           placeholder="Tuliskan komentar atau pembaruan tugas..."
           {...register('message')}
         />
-        {errors.message && (
-          <p className="text-xs text-rose-500 mt-1">{errors.message.message}</p>
-        )}
+        {errors.message && <p className="text-xs text-rose-500 mt-1">{errors.message.message}</p>}
       </div>
 
       <div className="flex justify-end">
@@ -56,4 +54,3 @@ export function CommentForm({ onSubmit, isLoading = false }: CommentFormProps) {
     </form>
   )
 }
-

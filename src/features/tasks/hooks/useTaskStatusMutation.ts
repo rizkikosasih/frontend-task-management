@@ -19,9 +19,7 @@ export function useTaskStatusMutation(projectId?: number) {
       if (previousData?.data) {
         queryClient.setQueryData<ApiResponse<Task[]>>(queryKey, {
           ...previousData,
-          data: previousData.data.map((task) =>
-            task.id === id ? { ...task, status } : task
-          ),
+          data: previousData.data.map((task) => (task.id === id ? { ...task, status } : task)),
         })
       }
 
@@ -42,4 +40,3 @@ export function useTaskStatusMutation(projectId?: number) {
     },
   })
 }
-

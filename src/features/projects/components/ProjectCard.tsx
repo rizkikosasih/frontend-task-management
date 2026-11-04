@@ -12,7 +12,8 @@ export interface ProjectCardProps {
 export function ProjectCard({ project, onEdit, onDelete }: ProjectCardProps) {
   const { user } = useAuthStore()
 
-  const creatorId = typeof project.created_by === 'object' ? project.created_by?.id : project.created_by
+  const creatorId =
+    typeof project.created_by === 'object' ? project.created_by?.id : project.created_by
   const creatorName = typeof project.created_by === 'object' ? project.created_by?.name : null
   const isOwner = user?.id === creatorId
 
@@ -80,4 +81,3 @@ export function ProjectCard({ project, onEdit, onDelete }: ProjectCardProps) {
     </div>
   )
 }
-

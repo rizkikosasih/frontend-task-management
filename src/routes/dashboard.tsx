@@ -34,11 +34,11 @@ function DashboardPage() {
     <div className="space-y-8">
       <div className="pb-6 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">
-            Dasbor Ikhtisar
-          </h1>
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Dasbor Ikhtisar</h1>
           <p className="text-sm text-foreground-muted">
-            Selamat datang kembali, <span className="font-semibold text-foreground">{user?.name}</span>. Pantau kemajuan pekerjaan tim Anda di sini.
+            Selamat datang kembali,{' '}
+            <span className="font-semibold text-foreground">{user?.name}</span>. Pantau kemajuan
+            pekerjaan tim Anda di sini.
           </p>
         </div>
 
@@ -105,10 +105,7 @@ function DashboardPage() {
       <div className="bg-surface rounded-xl border border-border p-6 shadow-2xs space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold text-foreground">Proyek Aktif Terbaru</h2>
-          <Link
-            to="/projects"
-            className="text-xs font-medium text-primary-accent hover:underline"
-          >
+          <Link to="/projects" className="text-xs font-medium text-primary-accent hover:underline">
             Lihat semua proyek &rarr;
           </Link>
         </div>
@@ -140,10 +137,7 @@ function DashboardPage() {
                   <span className="text-xs font-medium text-foreground-muted">
                     {proj.tasks_count ?? 0} tugas
                   </span>
-                  <Link
-                    to="/projects/$projectId"
-                    params={{ projectId: String(proj.id) }}
-                  >
+                  <Link to="/projects/$projectId" params={{ projectId: String(proj.id) }}>
                     <Button variant="ghost" size="sm">
                       Buka Papan
                     </Button>
@@ -157,4 +151,3 @@ function DashboardPage() {
     </div>
   )
 }
-

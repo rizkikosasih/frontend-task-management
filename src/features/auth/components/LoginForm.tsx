@@ -57,7 +57,11 @@ export function LoginForm() {
       {loginMutation.isError && (
         <Toast
           type="error"
-          message={loginMutation.error instanceof Error ? loginMutation.error.message : 'Kredensial login tidak cocok.'}
+          message={
+            loginMutation.error instanceof Error
+              ? loginMutation.error.message
+              : 'Kredensial login tidak cocok.'
+          }
         />
       )}
 
@@ -78,11 +82,7 @@ export function LoginForm() {
           {...register('password')}
         />
 
-        <Button
-          type="submit"
-          className="w-full"
-          isLoading={loginMutation.isPending}
-        >
+        <Button type="submit" className="w-full" isLoading={loginMutation.isPending}>
           Masuk
         </Button>
       </form>
@@ -92,7 +92,9 @@ export function LoginForm() {
           <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-surface px-2 text-foreground-muted font-medium">atau masuk via OAuth</span>
+          <span className="bg-surface px-2 text-foreground-muted font-medium">
+            atau masuk via OAuth
+          </span>
         </div>
       </div>
 
@@ -124,4 +126,3 @@ export function LoginForm() {
     </div>
   )
 }
-

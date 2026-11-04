@@ -45,6 +45,7 @@ function ProjectDetailPage() {
 
   function handleStatusChange(taskId: number, newStatus: TaskStatus) {
     setErrorMessage(null)
+    setDetailTask((prev) => (prev && prev.id === taskId ? { ...prev, status: newStatus } : prev))
     statusMutation.mutate(
       { id: taskId, status: newStatus },
       {
@@ -86,7 +87,10 @@ function ProjectDetailPage() {
         <div className="h-32 bg-surface-subtle animate-pulse rounded-xl border border-border" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-96 bg-surface-subtle animate-pulse rounded-xl border border-border" />
+            <div
+              key={i}
+              className="h-96 bg-surface-subtle animate-pulse rounded-xl border border-border"
+            />
           ))}
         </div>
       </div>
@@ -123,9 +127,7 @@ function ProjectDetailPage() {
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <h1 className="text-2xl font-bold tracking-tight text-foreground">
-              {project.name}
-            </h1>
+            <h1 className="text-2xl font-bold tracking-tight text-foreground">{project.name}</h1>
             <p className="text-sm text-foreground-muted max-w-2xl">
               {project.description || 'Tidak ada deskripsi rinci.'}
             </p>
@@ -152,11 +154,7 @@ function ProjectDetailPage() {
       </div>
 
       {errorMessage && (
-        <Toast
-          type="error"
-          message={errorMessage}
-          onClose={() => setErrorMessage(null)}
-        />
+        <Toast type="error" message={errorMessage} onClose={() => setErrorMessage(null)} />
       )}
 
       <KanbanBoard
@@ -190,8 +188,9 @@ function ProjectDetailPage() {
         task={detailTask}
         isOpen={!!detailTask}
         onClose={() => setDetailTask(null)}
+        onStatusChange={handleStatusChange}
+        isUpdatingStatus={statusMutation.isPending}
       />
     </div>
   )
 }
-

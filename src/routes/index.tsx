@@ -13,7 +13,8 @@ function HomeComponent() {
           Kolaborasi Manajemen Proyek & Tugas Berkinerja Tinggi
         </h1>
         <p className="text-lg text-foreground-muted leading-relaxed">
-          Platform kolaboratif terintegrasi dengan proteksi idempotensi transaksi, kontrol konkurensi status pesimistis, dan otentikasi hibrida Sanctum serta OAuth2.
+          Platform kolaboratif terintegrasi dengan proteksi idempotensi transaksi, kontrol
+          konkurensi status pesimistis, dan otentikasi hibrida Sanctum serta OAuth2.
         </p>
         <div className="pt-4 flex items-center justify-center gap-4">
           <Link
@@ -33,7 +34,8 @@ function HomeComponent() {
           </div>
           <h3 className="font-semibold text-foreground text-lg">Idempotensi Transaksi</h3>
           <p className="text-sm text-foreground-muted">
-            Mencegah duplikasi entitas proyek dan tugas melalui penjaminan header mutasi UUID unik pada setiap pengiriman data.
+            Mencegah duplikasi entitas proyek dan tugas melalui penjaminan header mutasi UUID unik
+            pada setiap pengiriman data.
           </p>
         </div>
 
@@ -43,7 +45,8 @@ function HomeComponent() {
           </div>
           <h3 className="font-semibold text-foreground text-lg">Papan Tugas Terkendali</h3>
           <p className="text-sm text-foreground-muted">
-            Penguncian pesimistis pada backend memastikan alur status kanban konsisten tanpa risiko tabrakan modifikasi simultan.
+            Penguncian pesimistis pada backend memastikan alur status kanban konsisten tanpa risiko
+            tabrakan modifikasi simultan.
           </p>
         </div>
 
@@ -53,11 +56,11 @@ function HomeComponent() {
           </div>
           <h3 className="font-semibold text-foreground text-lg">Otorisasi Dua Lapis</h3>
           <p className="text-sm text-foreground-muted">
-            Kombinasi Spatie Role-Based Access Control dan Laravel Policy kepemilikan mengamankan akses data per pengguna.
+            Kombinasi Spatie Role-Based Access Control dan Laravel Policy kepemilikan mengamankan
+            akses data per pengguna.
           </p>
         </div>
       </section>
     </div>
   )
 }
-

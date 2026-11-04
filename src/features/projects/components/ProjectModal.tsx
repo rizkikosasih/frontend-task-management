@@ -22,7 +22,13 @@ export interface ProjectModalProps {
   isLoading?: boolean
 }
 
-export function ProjectModal({ isOpen, onClose, project, onSubmit, isLoading = false }: ProjectModalProps) {
+export function ProjectModal({
+  isOpen,
+  onClose,
+  project,
+  onSubmit,
+  isLoading = false,
+}: ProjectModalProps) {
   const {
     register,
     handleSubmit,
@@ -88,4 +94,3 @@ export function ProjectModal({ isOpen, onClose, project, onSubmit, isLoading = f
     </Modal>
   )
 }
-

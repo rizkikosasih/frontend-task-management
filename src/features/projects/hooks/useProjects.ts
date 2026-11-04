@@ -54,4 +54,3 @@ export function useProjectDetail(id: number) {
     enabled: !!id,
   })
 }
-
