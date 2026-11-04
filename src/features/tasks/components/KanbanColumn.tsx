@@ -29,15 +29,15 @@ export function KanbanColumn({
   })
 
   const columnColors = {
-    todo: 'border-slate-300 bg-slate-100/70',
-    in_progress: 'border-amber-300 bg-amber-50/50',
-    done: 'border-emerald-300 bg-emerald-50/50',
+    todo: 'border-border bg-surface-subtle/70',
+    in_progress: 'border-amber-500/30 bg-amber-500/5',
+    done: 'border-emerald-500/30 bg-emerald-500/5',
   }
 
   const badgeColors = {
-    todo: 'bg-slate-200 text-slate-700',
-    in_progress: 'bg-amber-200 text-amber-800',
-    done: 'bg-emerald-200 text-emerald-800',
+    todo: 'bg-surface text-foreground-muted border border-border',
+    in_progress: 'bg-amber-500/15 text-amber-600 dark:text-amber-400',
+    done: 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400',
   }
 
   return (
@@ -45,11 +45,11 @@ export function KanbanColumn({
       ref={setNodeRef}
       className={`flex flex-col rounded-xl border p-4 min-h-[500px] transition-colors ${
         columnColors[id]
-      } ${isOver ? 'ring-2 ring-indigo-500 ring-offset-2' : ''}`}
+      } ${isOver ? 'ring-2 ring-primary ring-offset-2' : ''}`}
     >
-      <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-200/60">
+      <div className="flex items-center justify-between pb-3 mb-3 border-b border-border-subtle">
         <div className="flex items-center gap-2">
-          <h3 className="font-semibold text-slate-900 text-sm tracking-wide">{title}</h3>
+          <h3 className="font-semibold text-foreground text-sm tracking-wide">{title}</h3>
           <span
             className={`text-xs px-2 py-0.5 rounded-full font-bold ${badgeColors[id]}`}
           >
@@ -60,7 +60,7 @@ export function KanbanColumn({
           <button
             type="button"
             onClick={() => onAddTask(id)}
-            className="p-1 rounded-md text-slate-500 hover:text-indigo-600 hover:bg-white/80 transition-colors"
+            className="p-1 rounded-md text-foreground-muted hover:text-primary hover:bg-surface transition-colors"
             title="Tambah Tugas"
           >
             <Plus className="w-4 h-4" />
@@ -76,7 +76,7 @@ export function KanbanColumn({
         </SortableContext>
 
         {tasks.length === 0 && (
-          <div className="h-32 flex items-center justify-center border-2 border-dashed border-slate-200 rounded-lg text-xs text-slate-400">
+          <div className="h-32 flex items-center justify-center border-2 border-dashed border-border rounded-lg text-xs text-foreground-muted">
             Belum ada tugas di kolom ini
           </div>
         )}

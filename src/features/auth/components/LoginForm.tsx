@@ -43,13 +43,13 @@ export function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-md bg-white p-8 rounded-xl border border-slate-200 shadow-sm space-y-6">
+    <div className="w-full max-w-md bg-surface p-8 rounded-xl border border-border shadow-sm space-y-6">
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 mb-2">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface-subtle text-primary-accent border border-border mb-2">
           <LogIn className="w-6 h-6" />
         </div>
-        <h2 className="text-2xl font-bold tracking-tight text-slate-900">Masuk ke Akun</h2>
-        <p className="text-sm text-slate-500">
+        <h2 className="text-2xl font-bold tracking-tight text-foreground">Masuk ke Akun</h2>
+        <p className="text-sm text-foreground-muted">
           Kelola proyek dan tugas tim Anda dalam satu dasbor terpadu
         </p>
       </div>
@@ -89,10 +89,10 @@ export function LoginForm() {
 
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-slate-200" />
+          <div className="w-full border-t border-border" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-white px-2 text-slate-400 font-medium">atau masuk via OAuth</span>
+          <span className="bg-surface px-2 text-foreground-muted font-medium">atau masuk via OAuth</span>
         </div>
       </div>
 
@@ -115,9 +115,9 @@ export function LoginForm() {
         </Button>
       </div>
 
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-xs text-foreground-muted">
         Belum memiliki akun?{' '}
-        <Link to="/register" className="text-indigo-600 font-medium hover:underline">
+        <Link to="/register" className="text-primary-accent font-medium hover:underline">
           Daftar sekarang
         </Link>
       </p>

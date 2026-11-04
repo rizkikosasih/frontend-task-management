@@ -54,3 +54,9 @@ Pemetaan arsitektur state klien, server cache, dan aliran mutasi data pada front
 - `setAuth(user, token)`: Menyimpan kredensial dan memperbarui token.
 - `clearAuth()`: Menghapus token dari memori dan `localStorage` saat logout.
 
+### `useThemeStore`
+- `theme`: Preferensi mode pengguna (`light`, `dark`, atau `system`).
+- `resolvedTheme`: Nilai tema hasil evaluasi sistem (`light` atau `dark`).
+- `setTheme(theme)`: Mengubah preferensi tema, memperbarui kelas `.dark` pada dokumen, dan menyimpan pilihan ke `localStorage`.
+- `initializeThemeWatcher()`: Pendaftaran listener event media query sistem dan sinkronisasi storage event lintas jendela peramban.
+

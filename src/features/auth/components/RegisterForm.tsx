@@ -38,13 +38,13 @@ export function RegisterForm() {
   }
 
   return (
-    <div className="w-full max-w-md bg-white p-8 rounded-xl border border-slate-200 shadow-sm space-y-6">
+    <div className="w-full max-w-md bg-surface p-8 rounded-xl border border-border shadow-sm space-y-6">
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 mb-2">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface-subtle text-primary-accent border border-border mb-2">
           <UserPlus className="w-6 h-6" />
         </div>
-        <h2 className="text-2xl font-bold tracking-tight text-slate-900">Registrasi Anggota</h2>
-        <p className="text-sm text-slate-500">
+        <h2 className="text-2xl font-bold tracking-tight text-foreground">Registrasi Anggota</h2>
+        <p className="text-sm text-foreground-muted">
           Buat akun baru untuk mulai menerima penugasan pekerjaan tim
         </p>
       </div>
@@ -97,9 +97,9 @@ export function RegisterForm() {
         </Button>
       </form>
 
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-xs text-foreground-muted">
         Sudah memiliki akun?{' '}
-        <Link to="/login" className="text-indigo-600 font-medium hover:underline">
+        <Link to="/login" className="text-primary-accent font-medium hover:underline">
           Masuk di sini
         </Link>
       </p>
