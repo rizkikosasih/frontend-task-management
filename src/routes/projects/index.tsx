@@ -4,6 +4,7 @@ import { Plus, Search, FolderGit2 } from 'lucide-react'
 import { useAuthStore } from '@/stores/authStore'
 import { useProjects } from '@/features/projects/hooks/useProjects'
 import { ProjectCard } from '@/features/projects/components/ProjectCard'
+import { ProjectCardSkeleton } from '@/features/projects/components/ProjectCardSkeleton'
 import { ProjectModal } from '@/features/projects/components/ProjectModal'
 import { Button } from '@/components/ui/Button'
 import type { Project } from '@/types/project'
@@ -108,11 +109,8 @@ function ProjectsPage() {
 
       {projectsQuery.isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="h-48 rounded-xl bg-surface-subtle animate-pulse border border-border"
-            />
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <ProjectCardSkeleton key={i} />
           ))}
         </div>
       ) : projects.length === 0 ? (

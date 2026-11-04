@@ -41,4 +41,13 @@
 - **Bottom Sheet Modal Interaktif:** Menyesuaikan `Modal.tsx` menjadi bottom sheet pada resolusi seluler dengan batas tinggi dinamis `max-h-[85dvh]`, area gulir internal vertikal `overflow-y-auto`, dan indikator drag handle visual.
 - **Transisi Status 1-Ketukan:** Menambahkan tombol pilihan status instan (*one-tap status change*) pada `TaskDetailModal.tsx` guna mempermudah pemindahan status tugas bagi pengguna perangkat sentuh seluler tanpa interaksi seret-lepas.
 
+### Infrastruktur Pengujian Otomatis & Aksesibilitas
+
+- **Integrasi Vitest & Testing Library:** Mengonfigurasi `vitest.config.ts` dengan lingkungan jsdom, `@testing-library/react`, `@testing-library/jest-dom`, dan `@testing-library/user-event` serta mendaftarkan skrip `test` dan `test:watch` pada `package.json`.
+- **Mock Service Worker (MSW):** Mengintegrasikan MSW Node server pada `src/test/mocks/server.ts` dan handlers terpadu untuk simulasi intercept network request Axios dengan adapter `fetch`.
+- **Rangkaian Pengujian Otomatis:** Menyusun pengujian integrasi mutasi status optimistik dan rollback konkurensi (`useTaskStatusMutation.test.tsx`), pengujian pemilihan tema (`ThemeToggle.test.tsx`), pengujian interaksi dialog modal dan keyboard Escape (`Modal.test.tsx`), serta pengujian kartu tugas kanban (`TaskCard.test.tsx`) dengan 12 skenario pengujian berstatus lulus.
+- **Komponen Skeleton Loader Adaptif:** Membangun `ProjectCardSkeleton.tsx` dan `KanbanSkeleton.tsx` serta menerapkannya pada katalog proyek dan papan kanban saat pemuatan data guna meniadakan Cumulative Layout Shift (CLS).
+- **Audit Aksesibilitas ARIA:** Menambahkan atribut `role="dialog"`, `aria-modal="true"`, `aria-labelledby`, dan `aria-label` eksplisit pada modal dialog dan drawer navigasi mobile.
+
+
 

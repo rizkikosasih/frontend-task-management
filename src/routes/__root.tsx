@@ -155,6 +155,7 @@ function RootComponent() {
               onClick={() => setIsDrawerOpen(true)}
               className="p-2 rounded-lg text-foreground-muted hover:text-foreground hover:bg-surface-subtle transition-colors"
               title="Buka Menu"
+              aria-label="Buka Menu"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -167,7 +168,12 @@ function RootComponent() {
               className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
               onClick={() => setIsDrawerOpen(false)}
             />
-            <div className="fixed inset-y-0 right-0 w-72 max-w-[80vw] bg-surface border-l border-border shadow-2xl z-50 flex flex-col justify-between p-6 overflow-y-auto transform transition-transform animate-in slide-in-from-right duration-200">
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-label="Menu Navigasi"
+              className="fixed inset-y-0 right-0 w-72 max-w-[80vw] bg-surface border-l border-border shadow-2xl z-50 flex flex-col justify-between p-6 overflow-y-auto transform transition-transform animate-in slide-in-from-right duration-200"
+            >
               <div className="space-y-6">
                 <div className="flex items-center justify-between pb-4 border-b border-border">
                   <span className="font-bold text-base tracking-tight text-foreground">

@@ -26,7 +26,7 @@ function setSafeStorageItem(key: string, value: string): void {
 }
 
 function getSystemTheme(): 'light' | 'dark' {
-  if (typeof window === 'undefined') return 'light'
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return 'light'
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
@@ -64,7 +64,12 @@ export const useThemeStore = create<ThemeState>((set) => {
 let isWatcherInitialized = false
 
 export function initializeThemeWatcher(): () => void {
-  if (typeof window === 'undefined' || isWatcherInitialized) return () => {}
+  if (
+    typeof window === 'undefined' ||
+    typeof window.matchMedia !== 'function' ||
+    isWatcherInitialized
+  )
+    return () => {}
   isWatcherInitialized = true
 
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
