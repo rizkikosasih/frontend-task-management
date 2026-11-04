@@ -47,4 +47,3 @@ describe('TaskCard Component', () => {
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 })
-
