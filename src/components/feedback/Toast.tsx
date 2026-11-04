@@ -35,3 +35,4 @@ export function Toast({ type = 'success', message, onClose }: ToastProps) {
     </div>
   )
 }
+

@@ -88,3 +88,4 @@ export function ProjectModal({ isOpen, onClose, project, onSubmit, isLoading = f
     </Modal>
   )
 }
+

@@ -40,3 +40,4 @@ export async function deleteTaskApi(id: number): Promise<ApiResponse<null>> {
   const response = await apiClient.delete<ApiResponse<null>>(`/tasks/${id}`)
   return response.data
 }
+

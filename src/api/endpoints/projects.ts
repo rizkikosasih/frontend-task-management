@@ -32,3 +32,4 @@ export async function deleteProjectApi(id: number): Promise<ApiResponse<null>> {
   const response = await apiClient.delete<ApiResponse<null>>(`/projects/${id}`)
   return response.data
 }
+

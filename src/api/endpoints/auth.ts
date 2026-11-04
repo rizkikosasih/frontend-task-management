@@ -32,3 +32,4 @@ export async function getOAuthRedirectUrl(provider: 'google' | 'github'): Promis
   const response = await apiClient.get<ApiResponse<{ url: string }>>(`/oauth/${provider}/redirect`)
   return response.data
 }
+
