@@ -31,15 +31,23 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
         onClick={onClose}
       />
-      <div className="relative w-full max-w-lg bg-surface rounded-t-2xl sm:rounded-xl shadow-xl border-t sm:border border-border z-10 max-h-[85dvh] sm:max-h-[90vh] flex flex-col overflow-hidden transform transition-all animate-in slide-in-from-bottom sm:slide-in-from-bottom-0 sm:fade-in sm:zoom-in-95">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        className="relative w-full max-w-lg bg-surface rounded-t-2xl sm:rounded-xl shadow-xl border-t sm:border border-border z-10 max-h-[85dvh] sm:max-h-[90vh] flex flex-col overflow-hidden transform transition-all animate-in slide-in-from-bottom sm:slide-in-from-bottom-0 sm:fade-in sm:zoom-in-95"
+      >
         <div className="sm:hidden pt-2.5 pb-1 flex justify-center bg-surface-subtle border-b border-border-subtle shrink-0">
           <div className="w-10 h-1 bg-border rounded-full" />
         </div>
         <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-surface-subtle shrink-0">
-          <h3 className="font-semibold text-foreground text-lg">{title}</h3>
+          <h3 id="modal-title" className="font-semibold text-foreground text-lg">
+            {title}
+          </h3>
           <button
             type="button"
             onClick={onClose}
+            aria-label="Tutup dialog"
             className="text-foreground-muted hover:text-foreground transition-colors p-1 rounded-md"
           >
             <X className="w-5 h-5" />

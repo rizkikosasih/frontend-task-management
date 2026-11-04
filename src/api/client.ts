@@ -3,6 +3,7 @@ import { useAuthStore } from '@/stores/authStore'
 
 export const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api',
+  adapter: 'fetch',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

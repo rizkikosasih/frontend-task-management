@@ -15,6 +15,3 @@ if echo "$CHANGED_FILES" | grep -qE '^package(-lock)?\.json$'; then
   npm install
 fi
 
-if echo "$CHANGED_FILES" | grep -qE '^src/routes/'; then
-  npx tsr generate
-fi

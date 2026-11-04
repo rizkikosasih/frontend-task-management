@@ -6,6 +6,7 @@ import { useProjectDetail } from '@/features/projects/hooks/useProjects'
 import { useTasks } from '@/features/tasks/hooks/useTasks'
 import { useTaskStatusMutation } from '@/features/tasks/hooks/useTaskStatusMutation'
 import { KanbanBoard } from '@/features/tasks/components/KanbanBoard'
+import { KanbanSkeleton } from '@/features/tasks/components/KanbanSkeleton'
 import { TaskModal } from '@/features/tasks/components/TaskModal'
 import { TaskDetailModal } from '@/features/tasks/components/TaskDetailModal'
 import { Button } from '@/components/ui/Button'
@@ -82,17 +83,13 @@ function ProjectDetailPage() {
 
   if (isProjectLoading) {
     return (
-      <div className="space-y-6">
-        <div className="h-8 w-48 bg-surface-subtle animate-pulse rounded border border-border" />
-        <div className="h-32 bg-surface-subtle animate-pulse rounded-xl border border-border" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="h-96 bg-surface-subtle animate-pulse rounded-xl border border-border"
-            />
-          ))}
+      <div className="space-y-8 animate-pulse" aria-hidden="true">
+        <div className="space-y-4 pb-6 border-b border-border">
+          <div className="h-4 w-36 bg-surface-subtle rounded" />
+          <div className="h-8 w-64 bg-surface-subtle rounded-md" />
+          <div className="h-4 w-96 max-w-full bg-surface-subtle rounded" />
         </div>
+        <KanbanSkeleton />
       </div>
     )
   }
@@ -157,20 +154,24 @@ function ProjectDetailPage() {
         <Toast type="error" message={errorMessage} onClose={() => setErrorMessage(null)} />
       )}
 
-      <KanbanBoard
-        tasks={tasks}
-        onStatusChange={handleStatusChange}
-        onTaskClick={(task) => setDetailTask(task)}
-        onAddTask={
-          isAdmin()
-            ? () => {
-                setSelectedTask(null)
-                setIsTaskModalOpen(true)
-              }
-            : undefined
-        }
-        canAddTask={isAdmin()}
-      />
+      {tasksQuery.isLoading ? (
+        <KanbanSkeleton />
+      ) : (
+        <KanbanBoard
+          tasks={tasks}
+          onStatusChange={handleStatusChange}
+          onTaskClick={(task) => setDetailTask(task)}
+          onAddTask={
+            isAdmin()
+              ? () => {
+                  setSelectedTask(null)
+                  setIsTaskModalOpen(true)
+                }
+              : undefined
+          }
+          canAddTask={isAdmin()}
+        />
+      )}
 
       <TaskModal
         isOpen={isTaskModalOpen}
