@@ -13,7 +13,7 @@ export function CommentList({ comments, onDelete, isDeleting = false }: CommentL
 
   if (comments.length === 0) {
     return (
-      <div className="py-6 text-center text-xs text-slate-400 border border-dashed border-slate-200 rounded-lg">
+      <div className="py-6 text-center text-xs text-foreground-muted border border-dashed border-border rounded-lg">
         Belum ada komentar untuk tugas ini.
       </div>
     )
@@ -28,16 +28,16 @@ export function CommentList({ comments, onDelete, isDeleting = false }: CommentL
         return (
           <div
             key={comment.id}
-            className="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 space-y-1.5"
+            className="p-3.5 rounded-lg bg-surface-subtle border border-border space-y-1.5"
           >
             <div className="flex items-center justify-between text-xs">
-              <div className="flex items-center gap-1.5 font-medium text-slate-700">
-                <div className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-[10px]">
+              <div className="flex items-center gap-1.5 font-medium text-foreground">
+                <div className="w-5 h-5 rounded-full bg-surface text-primary-accent border border-border flex items-center justify-center text-[10px]">
                   <User className="w-3 h-3" />
                 </div>
                 <span>{authorName}</span>
                 {comment.created_at && (
-                  <span className="text-slate-400 font-normal">· {comment.created_at}</span>
+                  <span className="text-foreground-muted font-normal">· {comment.created_at}</span>
                 )}
               </div>
 
@@ -46,7 +46,7 @@ export function CommentList({ comments, onDelete, isDeleting = false }: CommentL
                   type="button"
                   onClick={() => onDelete(comment.id)}
                   disabled={isDeleting}
-                  className="text-slate-400 hover:text-rose-600 transition-colors p-1 rounded"
+                  className="text-foreground-muted hover:text-rose-500 transition-colors p-1 rounded"
                   title="Hapus Komentar"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
@@ -54,7 +54,7 @@ export function CommentList({ comments, onDelete, isDeleting = false }: CommentL
               )}
             </div>
 
-            <p className="text-xs text-slate-600 leading-relaxed whitespace-pre-wrap pl-6.5">
+            <p className="text-xs text-foreground-muted leading-relaxed whitespace-pre-wrap pl-6.5">
               {comment.message}
             </p>
           </div>

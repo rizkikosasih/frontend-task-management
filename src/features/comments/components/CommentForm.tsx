@@ -38,12 +38,12 @@ export function CommentForm({ onSubmit, isLoading = false }: CommentFormProps) {
       <div className="relative">
         <textarea
           rows={2}
-          className="w-full px-3.5 py-2 text-xs rounded-lg border border-slate-300 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm placeholder:text-slate-400"
+          className="w-full px-3.5 py-2 text-xs rounded-lg border border-border bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-primary shadow-sm placeholder:text-foreground-muted"
           placeholder="Tuliskan komentar atau pembaruan tugas..."
           {...register('message')}
         />
         {errors.message && (
-          <p className="text-xs text-rose-600 mt-1">{errors.message.message}</p>
+          <p className="text-xs text-rose-500 mt-1">{errors.message.message}</p>
         )}
       </div>
 

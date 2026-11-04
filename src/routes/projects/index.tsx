@@ -74,10 +74,10 @@ function ProjectsPage() {
 
   return (
     <div className="space-y-8">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-border">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900">Katalog Proyek</h1>
-          <p className="text-sm text-slate-500">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Katalog Proyek</h1>
+          <p className="text-sm text-foreground-muted">
             Daftar proyek kolaboratif dan papan kanban tim Anda
           </p>
         </div>
@@ -97,7 +97,7 @@ function ProjectsPage() {
 
       <div className="flex items-center gap-3 max-w-md">
         <div className="relative w-full">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-foreground-muted absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={search}
@@ -106,7 +106,7 @@ function ProjectsPage() {
               setPage(1)
             }}
             placeholder="Cari berdasarkan nama proyek..."
-            className="w-full pl-9 pr-4 py-2 text-sm rounded-lg border border-slate-300 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-2xs"
+            className="w-full pl-9 pr-4 py-2 text-sm rounded-lg border border-border bg-surface text-foreground placeholder:text-foreground-muted focus:outline-none focus:ring-2 focus:ring-primary shadow-2xs"
           />
         </div>
       </div>
@@ -114,16 +114,16 @@ function ProjectsPage() {
       {projectsQuery.isLoading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-48 rounded-xl bg-slate-200/60 animate-pulse" />
+            <div key={i} className="h-48 rounded-xl bg-surface-subtle animate-pulse border border-border" />
           ))}
         </div>
       ) : projects.length === 0 ? (
-        <div className="py-16 text-center border-2 border-dashed border-slate-200 rounded-xl space-y-3">
-          <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
+        <div className="py-16 text-center border-2 border-dashed border-border rounded-xl space-y-3">
+          <div className="w-12 h-12 rounded-full bg-surface-subtle text-foreground-muted flex items-center justify-center mx-auto border border-border">
             <FolderGit2 className="w-6 h-6" />
           </div>
-          <h3 className="font-semibold text-slate-800">Tidak ada proyek ditemukan</h3>
-          <p className="text-sm text-slate-500 max-w-sm mx-auto">
+          <h3 className="font-semibold text-foreground">Tidak ada proyek ditemukan</h3>
+          <p className="text-sm text-foreground-muted max-w-sm mx-auto">
             {search
               ? 'Tidak ada proyek yang cocok dengan kata kunci pencarian.'
               : 'Belum ada proyek yang terdaftar. Mulai buat proyek baru untuk kolaborasi.'}
@@ -143,8 +143,8 @@ function ProjectsPage() {
       )}
 
       {meta && (meta.last_page || 1) > 1 && (
-        <div className="flex items-center justify-between pt-6 border-t border-slate-200 text-sm">
-          <span className="text-slate-500">
+        <div className="flex items-center justify-between pt-6 border-t border-border text-sm">
+          <span className="text-foreground-muted">
             Halaman {meta.current_page} dari {meta.last_page} ({meta.total} proyek)
           </span>
           <div className="flex items-center gap-2">

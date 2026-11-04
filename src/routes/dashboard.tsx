@@ -32,13 +32,13 @@ function DashboardPage() {
 
   return (
     <div className="space-y-8">
-      <div className="pb-6 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="pb-6 border-b border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">
             Dasbor Ikhtisar
           </h1>
-          <p className="text-sm text-slate-500">
-            Selamat datang kembali, <span className="font-semibold text-slate-700">{user?.name}</span>. Pantau kemajuan pekerjaan tim Anda di sini.
+          <p className="text-sm text-foreground-muted">
+            Selamat datang kembali, <span className="font-semibold text-foreground">{user?.name}</span>. Pantau kemajuan pekerjaan tim Anda di sini.
           </p>
         </div>
 
@@ -51,93 +51,93 @@ function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+        <div className="bg-surface p-5 rounded-xl border border-border shadow-2xs space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
               Total Proyek
             </span>
-            <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-surface-subtle text-primary-accent flex items-center justify-center border border-border">
               <FolderGit2 className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-2xl font-bold text-slate-900">
+          <div className="text-2xl font-bold text-foreground">
             {projectsQuery.data?.meta?.total ?? projects.length}
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+        <div className="bg-surface p-5 rounded-xl border border-border shadow-2xs space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
               Perlu Dikerjakan
             </span>
-            <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-surface-subtle text-foreground-muted flex items-center justify-center border border-border">
               <Clock className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-2xl font-bold text-slate-900">{todoCount}</div>
+          <div className="text-2xl font-bold text-foreground">{todoCount}</div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+        <div className="bg-surface p-5 rounded-xl border border-border shadow-2xs space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
               Sedang Berjalan
             </span>
-            <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center border border-amber-500/20">
               <CheckSquare className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-2xl font-bold text-slate-900">{inProgressCount}</div>
+          <div className="text-2xl font-bold text-foreground">{inProgressCount}</div>
         </div>
 
-        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-2xs space-y-2">
+        <div className="bg-surface p-5 rounded-xl border border-border shadow-2xs space-y-2">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-foreground-muted uppercase tracking-wider">
               Tugas Selesai
             </span>
-            <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20">
               <CheckCircle2 className="w-4 h-4" />
             </div>
           </div>
-          <div className="text-2xl font-bold text-slate-900">{doneCount}</div>
+          <div className="text-2xl font-bold text-foreground">{doneCount}</div>
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-2xs space-y-4">
+      <div className="bg-surface rounded-xl border border-border p-6 shadow-2xs space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold text-slate-900">Proyek Aktif Terbaru</h2>
+          <h2 className="text-lg font-bold text-foreground">Proyek Aktif Terbaru</h2>
           <Link
             to="/projects"
-            className="text-xs font-medium text-indigo-600 hover:text-indigo-700 hover:underline"
+            className="text-xs font-medium text-primary-accent hover:underline"
           >
             Lihat semua proyek &rarr;
           </Link>
         </div>
 
         {projects.length === 0 ? (
-          <p className="text-sm text-slate-500 py-6 text-center">
+          <p className="text-sm text-foreground-muted py-6 text-center">
             Belum ada proyek yang terdaftar.
           </p>
         ) : (
-          <div className="divide-y divide-slate-100">
+          <div className="divide-y divide-border-subtle">
             {projects.map((proj) => (
               <div
                 key={proj.id}
-                className="py-3.5 flex items-center justify-between hover:bg-slate-50 px-2 rounded-lg transition-colors"
+                className="py-3.5 flex items-center justify-between hover:bg-surface-subtle px-2 rounded-lg transition-colors"
               >
                 <div className="space-y-0.5">
                   <Link
                     to="/projects/$projectId"
                     params={{ projectId: String(proj.id) }}
-                    className="font-medium text-sm text-slate-900 hover:text-indigo-600 transition-colors"
+                    className="font-medium text-sm text-foreground hover:text-primary-accent transition-colors"
                   >
                     {proj.name}
                   </Link>
-                  <p className="text-xs text-slate-500 line-clamp-1">
+                  <p className="text-xs text-foreground-muted line-clamp-1">
                     {proj.description || 'Tidak ada deskripsi.'}
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-medium text-slate-500">
+                  <span className="text-xs font-medium text-foreground-muted">
                     {proj.tasks_count ?? 0} tugas
                   </span>
                   <Link

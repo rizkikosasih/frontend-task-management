@@ -1,14 +1,78 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: var(--bg-background);
+  --color-surface: var(--bg-surface);
+  --color-surface-subtle: var(--bg-surface-subtle);
+  --color-foreground: var(--text-foreground);
+  --color-foreground-muted: var(--text-foreground-muted);
+  --color-border: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
+  --color-primary: var(--primary-default);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-contrast);
+  --color-primary-accent: var(--primary-accent);
+  --color-secondary: var(--secondary-default);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-contrast);
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
+  color-scheme: light;
+
+  --bg-background: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #f1f5f9;
+  --text-foreground: #0f172a;
+  --text-foreground-muted: #475569;
+  --border-default: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --primary-default: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-contrast: #ffffff;
+  --primary-accent: #4f46e5;
+  --secondary-default: #ffffff;
+  --secondary-hover: #f8fafc;
+  --secondary-contrast: #0f172a;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --bg-background: #090d16;
+  --bg-surface: #0f172a;
+  --bg-surface-subtle: #1e293b;
+  --text-foreground: #f8fafc;
+  --text-foreground-muted: #94a3b8;
+  --border-default: #334155;
+  --border-subtle: #1e293b;
+  --primary-default: #4f46e5;
+  --primary-hover: #6366f1;
+  --primary-contrast: #ffffff;
+  --primary-accent: #818cf8;
+  --secondary-default: #1e293b;
+  --secondary-hover: #334155;
+  --secondary-contrast: #f8fafc;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-background);
+  color: var(--text-foreground);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-surface) inset;
+  box-shadow: 0 0 0px 1000px var(--bg-surface) inset;
+  -webkit-text-fill-color: var(--text-foreground);
+  transition: background-color 5000s ease-in-out 0s;
 }

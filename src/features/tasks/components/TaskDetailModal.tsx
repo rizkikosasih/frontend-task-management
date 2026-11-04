@@ -28,29 +28,29 @@ export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps)
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Rincian Tugas & Linimasa Diskusi">
       <div className="space-y-6">
-        <div className="space-y-3 pb-4 border-b border-slate-100">
+        <div className="space-y-3 pb-4 border-b border-border-subtle">
           <div className="flex items-center justify-between gap-3">
             <Badge variant={task.status}>{task.status.replace('_', ' ')}</Badge>
             {task.due_date && (
-              <div className="flex items-center gap-1.5 text-xs text-slate-500">
+              <div className="flex items-center gap-1.5 text-xs text-foreground-muted">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Tenggat: {task.due_date}</span>
               </div>
             )}
           </div>
 
-          <h2 className="text-xl font-bold text-slate-900 leading-snug">
+          <h2 className="text-xl font-bold text-foreground leading-snug">
             {task.title}
           </h2>
 
-          <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-wrap">
+          <p className="text-sm text-foreground-muted leading-relaxed whitespace-pre-wrap">
             {task.description || 'Tidak ada deskripsi rinci.'}
           </p>
 
-          <div className="flex items-center gap-2 pt-1 text-xs text-slate-500">
-            <User className="w-3.5 h-3.5 text-indigo-500" />
+          <div className="flex items-center gap-2 pt-1 text-xs text-foreground-muted">
+            <User className="w-3.5 h-3.5 text-primary-accent" />
             <span>Penerima Tugas: </span>
-            <span className="font-medium text-slate-700">
+            <span className="font-medium text-foreground">
               {assigneeName || 'Belum ditugaskan'}
             </span>
           </div>
@@ -58,9 +58,9 @@ export function TaskDetailModal({ task, isOpen, onClose }: TaskDetailModalProps)
 
         <div className="space-y-4">
           <div className="flex items-center gap-2">
-            <CheckSquare className="w-4 h-4 text-indigo-600" />
-            <h3 className="font-semibold text-slate-900 text-sm">Linimasa Komentar</h3>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 font-bold text-slate-600">
+            <CheckSquare className="w-4 h-4 text-primary-accent" />
+            <h3 className="font-semibold text-foreground text-sm">Linimasa Komentar</h3>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-surface-subtle font-bold text-foreground-muted border border-border">
               {comments.length}
             </span>
           </div>

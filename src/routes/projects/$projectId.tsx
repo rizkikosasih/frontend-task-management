@@ -82,11 +82,11 @@ function ProjectDetailPage() {
   if (isProjectLoading) {
     return (
       <div className="space-y-6">
-        <div className="h-8 w-48 bg-slate-200 animate-pulse rounded" />
-        <div className="h-32 bg-slate-200 animate-pulse rounded-xl" />
+        <div className="h-8 w-48 bg-surface-subtle animate-pulse rounded border border-border" />
+        <div className="h-32 bg-surface-subtle animate-pulse rounded-xl border border-border" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-96 bg-slate-200 animate-pulse rounded-xl" />
+            <div key={i} className="h-96 bg-surface-subtle animate-pulse rounded-xl border border-border" />
           ))}
         </div>
       </div>
@@ -96,11 +96,11 @@ function ProjectDetailPage() {
   if (!project) {
     return (
       <div className="py-16 text-center space-y-4">
-        <div className="w-12 h-12 rounded-full bg-rose-50 text-rose-500 flex items-center justify-center mx-auto">
+        <div className="w-12 h-12 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center mx-auto border border-rose-500/20">
           <FolderGit2 className="w-6 h-6" />
         </div>
-        <h2 className="text-xl font-bold text-slate-800">Proyek Tidak Ditemukan</h2>
-        <p className="text-sm text-slate-500">
+        <h2 className="text-xl font-bold text-foreground">Proyek Tidak Ditemukan</h2>
+        <p className="text-sm text-foreground-muted">
           Proyek mungkin telah dihapus atau Anda tidak memiliki hak akses.
         </p>
         <Link to="/projects">
@@ -112,10 +112,10 @@ function ProjectDetailPage() {
 
   return (
     <div className="space-y-8">
-      <div className="space-y-4 pb-6 border-b border-slate-200">
+      <div className="space-y-4 pb-6 border-b border-border">
         <Link
           to="/projects"
-          className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 hover:text-indigo-600 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-medium text-foreground-muted hover:text-primary-accent transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Kembali ke Katalog Proyek</span>
@@ -123,14 +123,14 @@ function ProjectDetailPage() {
 
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-bold tracking-tight text-foreground">
               {project.name}
             </h1>
-            <p className="text-sm text-slate-600 max-w-2xl">
+            <p className="text-sm text-foreground-muted max-w-2xl">
               {project.description || 'Tidak ada deskripsi rinci.'}
             </p>
             {project.created_at && (
-              <div className="flex items-center gap-1.5 text-xs text-slate-400 pt-1">
+              <div className="flex items-center gap-1.5 text-xs text-foreground-muted pt-1">
                 <Calendar className="w-3.5 h-3.5" />
                 <span>Dibuat: {project.created_at}</span>
               </div>
