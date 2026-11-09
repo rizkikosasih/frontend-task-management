@@ -34,11 +34,12 @@ export function LoginForm() {
   async function handleOAuth(provider: 'google' | 'github') {
     try {
       const res = await getOAuthRedirectUrl(provider)
-      if (res.data?.url) {
-        window.location.href = res.data.url
+      const targetUrl = res.data?.redirect_url || res.data?.url
+      if (targetUrl) {
+        window.location.href = targetUrl
       }
     } catch {
-      window.location.href = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api'}/oauth/${provider}/redirect`
+      window.location.href = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8101/api'}/oauth/${provider}/redirect`
     }
   }
 
