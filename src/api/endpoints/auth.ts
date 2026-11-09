@@ -41,3 +41,19 @@ export async function getOAuthRedirectUrl(
   )
   return response.data
 }
+
+export interface LinkOAuthPayload {
+  token?: string
+  access_token?: string
+}
+
+export async function linkOAuthProviderApi(
+  provider: 'google' | 'github',
+  payload?: LinkOAuthPayload
+): Promise<ApiResponse<{ user: User }>> {
+  const response = await apiClient.post<ApiResponse<{ user: User }>>(
+    `/oauth/${provider}/link`,
+    payload
+  )
+  return response.data
+}

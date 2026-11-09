@@ -12,9 +12,12 @@ import {
 } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { useAuthStore } from '@/stores/authStore'
+import { useToastStore } from '@/stores/toastStore'
+import { Toast } from '@/components/feedback/Toast'
 import { Badge } from '@/components/ui/Badge'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { logoutApi } from '@/api/endpoints/auth'
+import { AccountProfileModal } from '@/features/auth/components/AccountProfileModal'
 import { useQueryClient } from '@tanstack/react-query'
 
 export const Route = createRootRoute({
@@ -23,9 +26,11 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   const { user, token, clearAuth } = useAuthStore()
+  const { toast, hideToast } = useToastStore()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -102,7 +107,12 @@ function RootComponent() {
 
             {token && user ? (
               <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsProfileModalOpen(true)}
+                  className="flex items-center gap-2 hover:opacity-85 transition-opacity cursor-pointer text-left"
+                  title="Buka Pengaturan Profil & Keamanan"
+                >
                   <div className="w-7 h-7 rounded-full bg-surface-subtle text-foreground flex items-center justify-center text-xs font-bold border border-border">
                     <User className="w-4 h-4" />
                   </div>
@@ -117,7 +127,7 @@ function RootComponent() {
                       {role}
                     </Badge>
                   </div>
-                </div>
+                </button>
 
                 <button
                   type="button"
@@ -242,6 +252,17 @@ function RootComponent() {
                     </div>
                     <button
                       type="button"
+                      onClick={() => {
+                        setIsDrawerOpen(false)
+                        setIsProfileModalOpen(true)
+                      }}
+                      className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-foreground hover:bg-surface-subtle rounded-lg transition-colors border border-border"
+                    >
+                      <User className="w-4 h-4" />
+                      <span>Pengaturan Profil & Keamanan</span>
+                    </button>
+                    <button
+                      type="button"
                       onClick={handleLogout}
                       className="w-full flex items-center justify-center gap-2 px-3 py-2 text-sm font-medium text-rose-500 hover:bg-rose-500/10 rounded-lg transition-colors border border-rose-500/20"
                     >
@@ -278,6 +299,19 @@ function RootComponent() {
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Outlet />
       </main>
+
+      {toast && (
+        <div className="fixed bottom-5 right-5 z-50 max-w-md w-full px-4 sm:px-0">
+          <Toast type={toast.type} message={toast.message} onClose={hideToast} />
+        </div>
+      )}
+
+      {token && user && (
+        <AccountProfileModal
+          isOpen={isProfileModalOpen}
+          onClose={() => setIsProfileModalOpen(false)}
+        />
+      )}
     </div>
   )
 }
